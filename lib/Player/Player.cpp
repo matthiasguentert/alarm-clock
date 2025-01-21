@@ -11,7 +11,6 @@ void Player::setup(const PlayerConfig &config)
     // Send initialization parameters
     executeCommand(0x3f, 0x00, 0x00);
 
-    // Set volume level between 0 and 30
     setVolume(config.volumeLevel);
 }
 

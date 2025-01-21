@@ -1,8 +1,10 @@
 #define DEBUG 0
+
 #include "Debug.hpp"
 #include "Clock.hpp"
 #include "Display.hpp"
 #include "Player.hpp"
+#include "StateManager.hpp"
 
 void Clock::setup(const ClockConfig &config)
 {
@@ -44,7 +46,15 @@ void Clock::onAlarmEnter()
 
 void Clock::onAlarm()
 {
+    snoozeButton.update();
+
+    if (snoozeButton.fell())
+    {
+        StateManager::fsm.trigger(SNOOZE_EVENT);
+    }
+
     // blink LEDs
+    // if alaram swich off trigger idle event
 }
 
 void Clock::onAlarmExit()
@@ -55,6 +65,8 @@ void Clock::onAlarmExit()
 RTC_DS3231 Clock::rtc;
 
 volatile bool Clock::isrToggle = false;
+
+Bounce2::Button Clock::snoozeButton;
 
 void Clock::onClockInterrupt()
 {
