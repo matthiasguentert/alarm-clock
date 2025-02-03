@@ -1,22 +1,24 @@
 #ifndef DEBUG_HPP
 #define DEBUG_HPP
 
+#include <Arduino.h>
+
 #if DEBUG
 #define D_SerialBegin(...) Serial.begin(__VA_ARGS__)
 #define D_SerialBeginAndWait(...) \
-  Serial.begin(__VA_ARGS__);      \
-  while (!Serial)                 \
-  {                               \
-    delay(1);                     \
-  }
+    Serial.begin(__VA_ARGS__);    \
+    while (!Serial)               \
+    {                             \
+        delay(1);                 \
+    }
 #define D_print(...) Serial.print(__VA_ARGS__)
 #define D_println(...) Serial.println(__VA_ARGS__)
 #define D_write(...) Serial.write(__VA_ARGS__)
 #define D_SerialWait \
-  while (!Serial)    \
-  {                  \
-    delay(1);        \
-  }
+    while (!Serial)  \
+    {                \
+        delay(1);    \
+    }
 #else
 #define D_SerialBegin(...)
 #define D_SerialBeginAndWait(...)
@@ -26,4 +28,4 @@
 #define D_SerialWait
 #endif
 
-#endif
+#endif // DEBUG_HPP

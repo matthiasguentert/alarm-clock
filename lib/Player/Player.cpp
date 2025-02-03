@@ -1,7 +1,14 @@
 #include "Player.hpp"
 
+#include <EEPROM.h>
+
+SoftwareSerial Player::serial(0, 1);
+PlayerConfig Player::config;
+
 void Player::setup(const PlayerConfig &config)
 {
+    D_println(">> Player setup");
+
     Player::config = config;
 
     // Initialize software serial
@@ -12,6 +19,11 @@ void Player::setup(const PlayerConfig &config)
     executeCommand(0x3f, 0x00, 0x00);
 
     setVolume(config.volumeLevel);
+}
+
+void Player::play()
+{
+    play(readAlarmTrackFromEeprom());
 }
 
 void Player::play(Track track)
@@ -36,9 +48,25 @@ void Player::setVolume(uint8_t level)
     executeCommand(0x06, 0x00, level);
 }
 
-SoftwareSerial Player::serial(0, 1);
+Track Player::toAlarmTrack(uint8_t alarmTrack)
+{
+    return static_cast<Track>(alarmTrack);
+}
 
-PlayerConfig Player::config;
+uint8_t Player::fromAlarmTrack(Track alarmTrack)
+{
+    return static_cast<uint8_t>(alarmTrack);
+}
+
+Track Player::readAlarmTrackFromEeprom()
+{
+    return toAlarmTrack(EEPROM.read(0));
+}
+
+void Player::writeAlarmTrackToEeprom(Track alarmTrack)
+{
+    EEPROM.write(0, fromAlarmTrack(alarmTrack));
+}
 
 void Player::executeCommand(uint8_t command, uint8_t param1, uint8_t param2)
 {

@@ -1,27 +1,30 @@
 #include "StateManager.hpp"
-#include "Clock.hpp"
 
-Fsm StateManager::fsm;
+// State definitions
+State StateManager::idle(Clock::onIdleEnter, Clock::onIdle, Clock::onIdleExit);
+State StateManager::alarm(Clock::onAlarmEnter, Clock::onAlarm, Clock::onAlarmExit);
+State StateManager::snooze(Clock::onSnoozeEnter, Clock::onIdle, Clock::onSnoozeExit);
+State StateManager::timeSetup(EventHandler::onTimeSetupEnter, EventHandler::onTimeSetup, EventHandler::onTimeSetupExit);
+State StateManager::alarmTimeSetup(EventHandler::onAlarmTimeSetupEnter, EventHandler::onAlarmTimeSetup, EventHandler::onAlarmTimeSetupExit);
+State StateManager::alarmSoundSetup(nullptr, EventHandler::onAlarmSoundSetup, nullptr);
 
-void StateManager::setup()
+Fsm StateManager::fsm(&idle);
+
+void StateManager::setup(const AlarmConfig &config)
 {
-    // State definitions
-    State idle(nullptr, Clock::onIdle, nullptr);
-    State alarm(Clock::onAlarmEnter, Clock::onAlarm, Clock::onAlarmExit);
-    State snooze(nullptr, nullptr, nullptr);     // not implemented yet
-    State timeSetup(nullptr, nullptr, nullptr);  // not implemented yet
-    State alarmSetup(nullptr, nullptr, nullptr); // not implemented yet
-
-    fsm = Fsm(&idle);
+    D_println(">> StateManager setup");
 
     // Transition definitions
-    fsm.add_transition(&idle, &alarm, ALARM_EVENT, nullptr);            // alarm fired
-    fsm.add_transition(&alarm, &idle, IDLE_EVENT, nullptr);             // alarm has been turned off
-    fsm.add_transition(&alarm, &snooze, SNOOZE_EVENT, nullptr);         // snooze state
-    fsm.add_transition(&snooze, &alarm, ALARM_EVENT, nullptr);          // snooze timer expired, back to alarm
-    fsm.add_transition(&snooze, &idle, IDLE_EVENT, nullptr);            // from snooze back to idle
-    fsm.add_transition(&idle, &alarmSetup, ALARM_SETUP_EVENT, nullptr); // alarm setup
-    fsm.add_transition(&alarmSetup, &idle, IDLE_EVENT, nullptr);        // finished alarm setup
-    fsm.add_transition(&idle, &timeSetup, TIME_SETUP_EVENT, nullptr);   // set the current time
-    fsm.add_transition(&timeSetup, &idle, IDLE_EVENT, nullptr);         // finished setting the time
+    fsm.add_transition(&idle, &alarm, ALARM_EVENT, nullptr);
+    fsm.add_transition(&alarm, &idle, IDLE_EVENT, nullptr);
+    fsm.add_transition(&alarm, &snooze, SNOOZE_EVENT, nullptr);
+    fsm.add_timed_transition(&snooze, &alarm, config.snoozeDurationMs, nullptr);
+    fsm.add_transition(&snooze, &idle, IDLE_EVENT, nullptr);
+
+    fsm.add_transition(&idle, &alarmTimeSetup, ALARM_TIME_SETUP_EVENT, nullptr);
+    fsm.add_transition(&alarmTimeSetup, &alarmSoundSetup, ALARM_SOUND_SETUP_EVENT, nullptr);
+    fsm.add_transition(&alarmSoundSetup, &idle, IDLE_EVENT, nullptr);
+
+    fsm.add_transition(&idle, &timeSetup, TIME_SETUP_EVENT, nullptr);
+    fsm.add_transition(&timeSetup, &idle, IDLE_EVENT, nullptr);
 }
