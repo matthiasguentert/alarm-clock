@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="370.5" cy="205.5" rx="30" ry="30"/>
+	<text x="354.5" y="211.5" font-family="Times New Roman" font-size="20">Idle</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="661.5" cy="255.5" rx="30" ry="30"/>
+	<text x="635.5" y="261.5" font-family="Times New Roman" font-size="20">Alarm</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="531.5" cy="518.5" rx="30" ry="30"/>
+	<text x="502.5" y="524.5" font-family="Times New Roman" font-size="20">Snooze</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="97.5" cy="63.5" rx="30" ry="30"/>
+	<text x="51.5" y="69.5" font-family="Times New Roman" font-size="20">Time Setup</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="107.5" cy="399.5" rx="30" ry="30"/>
+	<text x="33.5" y="405.5" font-family="Times New Roman" font-size="20">Alarm Time Setup</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="245.5" cy="528.5" rx="30" ry="30"/>
+	<text x="166.5" y="534.5" font-family="Times New Roman" font-size="20">Alarm Sound Setup</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 395.592,189.108 A 201.29,201.29 0 0 1 643.318,231.672"/>
+	<polygon fill="black" stroke-width="1" points="643.318,231.672 641.743,222.371 634.267,229.012"/>
+	<text x="455.5" y="144.5" font-family="Times New Roman" font-size="20">Alarm switch on &amp; RTC has fired</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 664.684,285.313 A 250.593,250.593 0 0 1 557.119,502.925"/>
+	<polygon fill="black" stroke-width="1" points="557.119,502.925 566.542,502.477 560.846,494.258"/>
+	<text x="646.5" y="424.5" font-family="Times New Roman" font-size="20">Snooze btn press</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 525.806,489.068 A 223.126,223.126 0 0 1 634.659,268.85"/>
+	<polygon fill="black" stroke-width="1" points="634.659,268.85 625.23,268.569 630.274,277.203"/>
+	<text x="461.5" y="357.5" font-family="Times New Roman" font-size="20">5 minutes</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 631.992,260.871 A 389.514,389.514 0 0 1 396.522,220.413"/>
+	<polygon fill="black" stroke-width="1" points="396.522,220.413 401.294,228.551 405.929,219.69"/>
+	<text x="429.5" y="285.5" font-family="Times New Roman" font-size="20">Alarm switch</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 126.352,55.374 A 209.303,209.303 0 0 1 360.589,177.212"/>
+	<polygon fill="black" stroke-width="1" points="360.589,177.212 361.998,167.884 352.822,171.857"/>
+	<text x="269.5" y="65.5" font-family="Times New Roman" font-size="20">Encoder press</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 342.73,216.768 A 189.965,189.965 0 0 1 104.217,92.706"/>
+	<polygon fill="black" stroke-width="1" points="104.217,92.706 101.851,101.839 111.389,98.835"/>
+	<text x="17.5" y="225.5" font-family="Times New Roman" font-size="20">Snooze btn long press</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 128.729,378.304 A 1000.486,1000.486 0 0 1 343.981,219.525"/>
+	<polygon fill="black" stroke-width="1" points="128.729,378.304 137.954,376.328 130.995,369.146"/>
+	<text x="113.5" y="282.5" font-family="Times New Roman" font-size="20">Encoder press</text>
+	<polygon stroke="black" stroke-width="1" points="129.416,419.987 223.584,508.013"/>
+	<polygon fill="black" stroke-width="1" points="223.584,508.013 221.154,498.898 214.326,506.203"/>
+	<text x="58.5" y="484.5" font-family="Times New Roman" font-size="20">Encoder press</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 366.279,235.199 A 701.418,701.418 0 0 1 262.372,503.697"/>
+	<polygon fill="black" stroke-width="1" points="366.279,235.199 360.051,242.285 369.919,243.903"/>
+	<text x="335.5" y="389.5" font-family="Times New Roman" font-size="20">Encoder press</text>
+</svg>

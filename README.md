@@ -2,11 +2,13 @@
 
 This is a fun project I built for my daugther, where she led the design. The alarm clock features snooze functionality and - most importantely - a couple of selectable alarm sound tracks like a rooster, barking dog, etc. 😊
 
+![Alarm Clock](assets/casing.jpg)
+
 For the logic I've used a finite state machine to control the events. The design uses entirely static methods and variables to reduce RAM usage. The snooze button got debounced with the famouse Bounce2 library.
 
-A long press on the snooze button allows adjusting the time. To green latching button enables and disables the alaram. A press on the rotary button enters alarm setup mode, where the alarm time and alarm track can be selected.
+![FSM](assets/fsm.svg)
 
-![Alarm Clock](assets/casing.jpg)
+A long press on the snooze button allows adjusting the time. To green latching button enables and disables the alaram. A press on the rotary button enters alarm setup mode, where the alarm time and alarm track can be selected.
 
 ## Hardware
 
