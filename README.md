@@ -2,7 +2,7 @@
 
 This is a fun project I built for my daugther, where she led the design. The alarm clock features snooze functionality and - most importantely - a couple of selectable alarm sound tracks like a rooster, barking dog, etc. 😊
 
-![Alarm Clock](assets/casing.jpg)
+![Alarm Clock](assets/case.jpeg)
 
 For the logic I've used a finite state machine to control the events. The design uses entirely static methods and variables to reduce RAM usage. The snooze button got debounced with the famouse Bounce2 library.
 
@@ -28,7 +28,7 @@ A long press on the snooze button allows adjusting the time. To green latching b
 
 The model was designed with FreeCAD and printed with a Prusa Mini+ using PLA. The source file can be found in the `model` folder.
 
-![3D case](assets/3d-model.png)
+![3D case](assets/3d-model.jpeg)
 
 ### Screwed connection
 
@@ -43,8 +43,8 @@ This serves well as a quick solution when 3d-printed with a higher resolution (s
 - Add `0.10mm` to the depth to accommodate for build tolerances of the screw in its length
 - Leave at least `2 mm`
 
-![printed threads 1](assets/printed-threads.png)
-![printed threads 2](assets/printed-threads-1.png)
+![printed threads 1](assets/printed-threads.jpeg)
+![printed threads 2](assets/printed-threads-1.jpeg)
 
 #### Melt-in thread inserts
 
