@@ -17,8 +17,8 @@ A long press on the snooze button allows adjusting the time. To green latching b
 * Adafruit Feather 328p (https://www.adafruit.com/product/3458)
 * DFPlayer Mini (DFR0299)
 * Adafruit DS3231 RTC (https://www.adafruit.com/product/5188)
-* Speaker ...
-* Capacitor (to filter noise)
+* Speaker 8 Ohm 2W
+* Capacitor 470uF (for noise filtering)
 * 7 Segment display HT16K33 bagback (https://www.adafruit.com/product/813)
 * Adafruit Rotary Encoder (https://www.adafruit.com/product/4991) as a multiselect controller for setup
 * Latching button with LED to enable/disable alaram (green)
