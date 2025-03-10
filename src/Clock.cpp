@@ -121,6 +121,26 @@ void Clock::onSnoozeEnter()
     digitalWrite(config.snoozeButtonLedPin, HIGH);
 }
 
+void Clock::onSnooze()
+{
+    // Alarm got disabled
+    if (!isAlarmEnabled())
+    {
+        rtc.clearAlarm(1);
+        StateManager::fsm.trigger(IDLE_EVENT);
+    };
+
+    // Update time while in snooze state
+    if (isrToggle)
+    {
+        isrToggle = false;
+        Display::update(rtc.now());
+    }
+
+    // Update alarm switch LED
+    digitalWrite(config.alarmSwitchLedPin, digitalRead(config.alarmSwitchPin) ? LOW : HIGH);
+}
+
 void Clock::onSnoozeExit()
 {
     D_println(">> snooze leave");

@@ -37,6 +37,7 @@ public:
     static void onAlarm();
     static void onAlarmExit();
     static void onSnoozeEnter();
+    static void onSnooze();
     static void onSnoozeExit();
 
 public:

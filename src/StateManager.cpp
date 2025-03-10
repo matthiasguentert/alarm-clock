@@ -1,9 +1,9 @@
 #include "StateManager.hpp"
 
-// State definitions
+// State definitions (on enter, on state, on exit)
 State StateManager::idle(Clock::onIdleEnter, Clock::onIdle, Clock::onIdleExit);
 State StateManager::alarm(Clock::onAlarmEnter, Clock::onAlarm, Clock::onAlarmExit);
-State StateManager::snooze(Clock::onSnoozeEnter, Clock::onIdle, Clock::onSnoozeExit);
+State StateManager::snooze(Clock::onSnoozeEnter, Clock::onSnooze, Clock::onSnoozeExit);
 State StateManager::timeSetup(EventHandler::onTimeSetupEnter, EventHandler::onTimeSetup, EventHandler::onTimeSetupExit);
 State StateManager::alarmTimeSetup(EventHandler::onAlarmTimeSetupEnter, EventHandler::onAlarmTimeSetup, EventHandler::onAlarmTimeSetupExit);
 State StateManager::alarmSoundSetup(nullptr, EventHandler::onAlarmSoundSetup, nullptr);
